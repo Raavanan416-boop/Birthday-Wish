@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Wishes</title>
+
+<style>
+
+
+/*mobile video play*/
+video{
+    width:100%;
+    max-width:100%;
+    height:auto;
+    border-radius:12px;
+}
+
+    /*mobile style*/
+    .container{
+    max-width:400px;   /* phone width */
+    margin:auto;
+    min-height:100vh;
+    padding:20px;
+}
+
+/* Images responsive */
+img{
+    width:100%;
+    height:auto;
+    max-width:100%;
+}
+
+/* Button responsive */
+button{
+    width:100%;
+    font-size:16px;
+}
+
+/* Input responsive */
+input{
+    width:90%;
+    max-width:100%;
+}
+
+/* Mobile specific adjustments */
+@media (max-width:480px){
+    h1{
+        font-size:22px;
+    }
+    h2{
+        font-size:18px;
+    }
+}
+
+    /* Bloom glowing background */
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    text-align:center;
+
+    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ffdde1, #a18cd1);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+}
+
+
+
+.sparkle{
+    position:fixed;
+    width:6px;
+    height:6px;
+    background:white;
+    border-radius:50%;
+    opacity:0.8;
+    animation: sparkleFloat linear forwards;
+}
+
+@keyframes sparkleFloat{
+    from{transform:translateY(100vh);}
+    to{transform:translateY(-10vh);opacity:0;}
+}
+
+.page{
+    display:none;
+    padding:40px;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.15);
+    border-radius:20px;
+    margin:20px;
+}
+
+.active{
+    display:block;
+}
+
+
+
+
+/* smooth moving gradient */
+@keyframes gradientMove {
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+
+@keyframes bloomBG {
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Heart rain */
+.heart {
+    position: fixed;
+    top: -10px;
+    color: red;
+    font-size: 20px;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+        opacity:0;
+    }
+}
+/*buloon effct*/
+.balloon{
+    position:fixed;
+    bottom:-120px;
+    width:40px;
+    height:50px;
+    border-radius:50%;
+    animation:rise linear forwards;
+}
+
+.balloon:after{
+    content:'';
+    position:absolute;
+    width:2px;
+    height:40px;
+    background:#555;
+    left:50%;
+    top:50px;
+}
+
+@keyframes rise{
+    from{transform:translateY(0);opacity:1;}
+    to{transform:translateY(-120vh);opacity:0;}
+}
+
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    text-align:center;
+    background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+}
+
+.page{
+    display:none;
+    padding:40px;
+}
+
+.active{
+    display:block;
+}
+
+button{
+    padding:12px 25px;
+    font-size:18px;
+    background:#ff4081;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+input{
+    padding:10px;
+    font-size:16px;
+    margin-top:10px;
+}
+
+img{
+    max-width:250px;
+    margin:15px;
+    border-radius:12px;
+}
+ 
+
+.three{
+     max-width:250px;
+    margin:15px;
+    border-radius:12px;
+}
+.one{
+     max-width:250px;
+    margin:15px;
+    border-radius:12px;
+}
+
+
+video{
+    max-width:250px;
+    margin:15px;
+    border-radius:12px;
+}
+
+
+.book{
+    width:200px;
+    height:260px;
+    margin:auto;
+    border-radius:10px;
+    cursor:pointer;
+    background-image:url('book.jpeg'); /* front image */
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+}
+
+
+
+
+.bookPage{
+    display:none;
+    background:white;
+    color:black;
+    padding:20px;
+    margin-top:20px;
+    border-radius:10px;
+    
+}
+
+
+/*blaust*/
+.confetti{
+    position: fixed;
+    width:8px;
+    height:8px;
+    top:0;
+    animation:confettiFall linear forwards;
+}
+
+@keyframes confettiFall{
+    to{
+        transform:translateY(100vh) rotate(720deg);
+        opacity:0;
+    }
+}
+
+#booktext{
+    color: #555;
+    padding-top: 160px;
+}
+
+
+/*cake*/
+.cakeBox{
+    width:120px;
+    margin:30px auto;
+    cursor:pointer;
+    position:relative;
+}
+
+.cakeTop{
+    width:120px;
+    height:40px;
+    background:pink;
+    border-radius:10px 10px 0 0;
+    transition:0.5s;
+}
+
+.cakeBottom{
+    width:120px;
+    height:60px;
+    background:#ff69b4;
+    border-radius:0 0 10px 10px;
+}
+
+/* cut animation */
+.cut .cakeTop{
+    transform: translateY(-30px) rotate(-10deg);
+}
+
+
+
+.container{
+    max-width:400px;
+    margin:auto;
+    padding:20px;
+    min-height:100vh;
+}
+
+</style>
+</head>
+
+<body>
+<div>
+
+<audio id="music" autoplay loop>
+    <source src="birathdaymus.mp3" type="audio/mpeg">
+</audio>
+
+
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+    <h1>🎉 Birthday Surprise 🎉</h1>
+    <img src="cute.image.jpeg">
+    <h2>Please Enter Your Name</h2>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <br>
+    <button onclick="goPage2()">Submit</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+    <h1 id="showName"></h1>
+    <video id="myvideo" autoplay muted loop playsinline>
+    <source src="birthday.mp4" type="video/mp4">
+</video>
+    <img src="cute cate song.jpeg">
+    <p>💕Wish You Many More Happy Returns Of The Day ❤️</p>
+    <p>Thanks for always supporting me 💯</p>
+    <button onclick="goPage3()">Next</button>
+
+
+
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+    <h1>Memories</h1>
+    <img src="cate4cute.jpeg">
+    <p>💕Our friendship is the most valuable gift in my life.😍</p>
+    <p>If the clock ⏰stops will time⌛ stop too? No!<br>
+Just like that,<b>our friendship🫂</b> even if our meetings stop🤝,Taking stop🙊, our bond
+will continue forever🫣</p>
+    <button onclick="goPage4()">Next</button>
+</div>
+
+<!-- PAGE 4 BOOK -->
+<div class="page" id="page4">
+    <h1>Touch the Book 📖</h1>
+   <div class="book" onclick="openBook()" style="color: aqua">Open</div>
+    <div class="bookPage" id="b1"> 🥳Happy Birthday to you 🎂</div>
+    <div class="bookPage" id="b2"> 😁Stay happy always 😊</div>
+    <div class="bookPage" id="b3"> 😴Dreams come true 🌟</div>
+    <div class="bookPage" id="b4">😘 Friendship forever ❤️</div>
+    <div class="bookPage" id="b5">🤍 Namma friendship random ah start aagirukkalam… aana ippo adhu en life oda biggest strength. Namma sandai, siripu, late night talks, ellam enakku our biggest Memory. Nee en kooda irundha dhaan en days complete ah feel aagum. Un life la evlo per vandhalum, en place permanent ah dhaan irukkum 😌✨
+Nee epovume happy ah, healthy ah, success full ah irukanum. Un dreams ellam one by one achieve panna naan side la claps adichitu iruppen. Love you my dear best friend🤍🔥</div>
+    <h2 class="two" style=" color: #555;">open</h2>
+
+    <button onclick="goPage5()">Next</button>
+</div>
+
+
+<!-- FINAL PAGE -->
+<div class="page" id="page5" >
+    <h1>🎊 Happy Birthday 🎊</h1>
+    <p>Many more happy returns of the day!</p>
+    <p>Thank you for being in my life.</p>
+     
+
+<!--cake -->
+    <div class="cakeBox" onclick="cutCake()">
+        <div class="cakeTop" onclick=" confettiBlast()"></div>
+        <div class="cakeBottom" onclick=" confettiBlast()"></div>
+    </div>
+    <p>☝️click the box👆</p>
+<div>
+   <video id="myvideo2" autoplay muted loop playsinline>
+    <source src="birthfunny.mp4" type="video/mp4">
+</video>
+</div>
+    <h2 id="byeText">Bye 👋</h2>
+
+
+
+
+    <p>I Hope You😊</p>
+    <button onclick="closePage()">Close</button>
+</div>   
+
+
+<!-- WISH PAGE -->
+<div class="page" id="pageWish">
+    <h1>Your Birthday Wish 🎁</h1>
+    <p>Type your wish here...</p>
+    <p>Un <b>Aasai</b> Enna vandru Sollu...</p>
+
+    <input type="text" id="friendWish" placeholder="Type your wish">
+    <br>
+  <div>     
+<img src="cute.cate gift.jpeg" alt="" class="one">
+    </div> 
+    <button onclick="submitWish()">Submit</button>
+</div>
+
+
+<script>
+
+    let friendName = ""; // global variable
+
+function goPage2(){
+    let name = document.getElementById("nameInput").value;
+
+        if(name === ""){
+        alert("Please enter your name 😊");
+        return;   // stop here
+    }
+
+    
+    let music = document.getElementById("music");
+    music.src = "birathdaymus.mp3";
+    music.play();
+
+    // name temporary save
+    localStorage.setItem("currentName", name);
+
+    document.getElementById("showName").innerText = "Happy Birthday " + name;
+
+    show("page2");
+
+    confettiBlast();
+     confettiBlast();
+ 
+     let video = document.getElementById("myVideo");
+    video.play();   // force play
+
+
+    confettiBlast();
+}
+
+
+
+function goPage3(){
+    show("page3");
+
+    let music = document.getElementById("music");
+    music.pause();          // old song stop
+    music.src = "ahbiya.mp3"; // new song
+    music.play();            // play page3 song
+}
+
+
+
+
+
+
+function goPage4(){
+    show("page4");
+}
+
+function goPage5(){
+    show("pageWish");   // first wish page open
+}
+
+function show(id){
+    var pages = document.querySelectorAll(".page");
+    pages.forEach(p => p.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+
+function openBook(){
+    document.getElementById("b1").style.display="block";
+    document.getElementById("b2").style.display="block";
+    document.getElementById("b3").style.display="block";
+    document.getElementById("b4").style.display="block";
+     document.getElementById("b5").style.display="block";
+}
+
+function closePage(){
+    alert("Thank you! Website closing...");
+    window.close();
+}
+
+    /*heart buloon*/
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.animationDuration = (Math.random()*3+2) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },5000);
+}
+
+setInterval(createHeart,300);
+
+/*buloon*/
+
+function createBalloon(){
+    const colors = ["red","blue","yellow","green","pink","purple","orange"];
+    
+    const balloon = document.createElement("div");
+    balloon.className="balloon";
+    
+    balloon.style.background = colors[Math.floor(Math.random()*colors.length)];
+    balloon.style.left = Math.random()*window.innerWidth+"px";
+    balloon.style.animationDuration = (Math.random()*4+4)+"s";
+
+    balloon.onclick=()=>{
+        balloon.style.background="transparent";
+        balloon.innerHTML="💥";
+        setTimeout(()=>balloon.remove(),300);
+    };
+
+    document.body.appendChild(balloon);
+    setTimeout(()=>balloon.remove(),8000);
+}
+
+setInterval(createBalloon,500);
+
+/*bluest*/
+
+function confettiBlast(){
+    const colors=["red","blue","yellow","green","pink","purple","orange"];
+
+    for(let i=0;i<120;i++){
+        const conf=document.createElement("div");
+        conf.className="confetti";
+        conf.style.left=Math.random()*window.innerWidth+"px";
+        conf.style.background=colors[Math.floor(Math.random()*colors.length)];
+        conf.style.animationDuration=(Math.random()*3+2)+"s";
+
+        document.body.appendChild(conf);
+
+        setTimeout(()=>conf.remove(),5000);
+    }
+}
+
+
+function submitWish(){
+    let name = document.getElementById("nameInput").value;
+     let wish = document.getElementById("friendWish").value;
+        
+     
+    if(wish === ""){
+        alert("Please enter your wish 🎁");
+        return;   // stop here
+    }
+
+
+console.log(name);
+console.log(wish);
+ 
+
+   emailjs.send("service_sfcjz79","template_vg9wqyo",{
+        name: name,
+        wish: wish
+    })
+
+    .then(function(response) {
+        console.log("SUCCESS!", response.status, response.text);
+    }, function(error) {
+        console.log("FAILED...", error);
+    });
+    // background save name + wish
+    let wishes = JSON.parse(localStorage.getItem("allWishes")) || [];
+
+    wishes.push({
+        name: name,
+        wish: wish
+    });
+
+    localStorage.setItem("allWishes", JSON.stringify(wishes));
+
+    // temporary message page
+    document.getElementById("pageWish").innerHTML = `
+        <h1>✨ Un wish niraiverum... ✨</h1>
+        <img src="wish box.jpeg"></img>
+    `;
+
+    show("pageWish");
+
+    // 2 sec apram final page open
+    setTimeout(()=>{
+        show("page5");
+    },2000);
+}
+/*background style*/
+
+function createSparkle(){
+    const s=document.createElement("div");
+    s.className="sparkle";
+    s.style.left=Math.random()*window.innerWidth+"px";
+    s.style.animationDuration=(Math.random()*5+5)+"s";
+
+    document.body.appendChild(s);
+
+    setTimeout(()=>s.remove(),8000);
+}
+setInterval(createSparkle,400);
+
+/*cake*/
+function cutCake(){
+
+    let cake=document.querySelector(".cakeBox");
+    cake.classList.add("cut");
+
+    document.getElementById("byeText").innerText =
+        "Cake cut! 🎂 Thank you ❤️  Once Again🔄️ Wish You Many More Happy😇 Returns Of The Day🌤️ Enjoy Your Life🧬 Bye 👋";
+
+        
+     let video = document.getElementById("myVideo");
+    video.play();   // force play
+}
+
+
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+emailjs.init("bz5z-eh6U0aU5tQkV");
+})();
+</script>
+
+
+
+</body>
+</html>
