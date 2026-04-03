@@ -544,35 +544,31 @@ function confettiBlast(){
     }
 }
 
-
 function submitWish(){
+
     let name = document.getElementById("nameInput").value;
-     let wish = document.getElementById("friendWish").value;
-        
-     
+    let wish = document.getElementById("friendWish").value;
+
     if(wish === ""){
         alert("Please enter your wish 🎁");
-        return;   // stop here
+        return;
     }
 
-
-console.log(name);
-console.log(wish);
- 
-
-   emailjs.send("service_sfcjz79","template_vg9wqyo",{
-        name: name,
-        wish: wish
-    })
-
-    .then(function(response) {
-        console.log("SUCCESS!", response.status, response.text);
-    }, function(error) {
-        console.log("FAILED...", error);
-    });
-    // background save name + wish
+    // ✅ 1. GET ALL OLD WISHES (INGA ADD)
     let wishes = JSON.parse(localStorage.getItem("allWishes")) || [];
 
+    // ✅ 2. CHECK DUPLICATE (INGA ADD)
+    let isDuplicate = wishes.some(w => 
+        w.name === name &&
+        w.wish.trim().toLowerCase() === wish.trim().toLowerCase()
+    );
+
+    if(isDuplicate){
+        alert("⚠️ Pls vara wish ahh type pannu😅\nEdu work ahhgula ga");
+        return;
+    }
+
+    // ✅ 3. SAVE NEW WISH (INGA ADD)
     wishes.push({
         name: name,
         wish: wish
@@ -580,19 +576,28 @@ console.log(wish);
 
     localStorage.setItem("allWishes", JSON.stringify(wishes));
 
-    // temporary message page
+    // 🔽 your existing code continue (EMAIL + UI)
+    console.log(name);
+    console.log(wish);
+
+    emailjs.send("service_sfcjz79","template_vg9wqyo",{
+        name: name,
+        wish: wish
+    });
+
     document.getElementById("pageWish").innerHTML = `
         <h1>✨ Un wish niraiverum... ✨</h1>
-        <img src="wish box.jpeg"></img>
+        <img src="wish box.jpeg">
     `;
 
     show("pageWish");
 
-    // 2 sec apram final page open
     setTimeout(()=>{
         show("page5");
     },2000);
 }
+
+
 /*background style*/
 
 function createSparkle(){
